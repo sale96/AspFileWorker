@@ -33,6 +33,14 @@ namespace FileWorker.Upload.Controllers
         [HttpPost]
         public IActionResult MultipleFiles(IEnumerable<IFormFile> files)
         {
+            foreach (var file in files)
+            {
+                using(var fileStream = new FileStream(Path.Combine(_dir, file.FileName), FileMode.Create, FileAccess.Write))
+                {
+                    file.CopyTo(fileStream);
+                }
+            }
+
             return RedirectToAction("Index");
         }
     }
