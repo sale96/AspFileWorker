@@ -9,3 +9,11 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<div>
+    <h4>Mutliple File Upload</h4>
+    <form asp-controller="Home" asp-action="MultipleFiles" enctype="multipart/form-data" method="post">
+        <input type="file" multiple name="files" />
+        <button type="submit">Submit</button>
+    </form>
+</div>

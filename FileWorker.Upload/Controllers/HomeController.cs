@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,12 @@ namespace FileWorker.Upload.Controllers
                 file.CopyTo(fileStream);
             }
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult MultipleFiles(IEnumerable<IFormFile> files)
+        {
             return RedirectToAction("Index");
         }
     }
