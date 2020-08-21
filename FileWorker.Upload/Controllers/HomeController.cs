@@ -16,9 +16,6 @@ namespace FileWorker.Upload.Controllers
             
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
     }
 }
