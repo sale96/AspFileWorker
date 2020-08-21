@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Hosting;
 
 namespace FileWorker.Display.Services
@@ -23,6 +24,8 @@ namespace FileWorker.Display.Services
             Files = new List<File>();
         }
         
+        public File GetFile(int id) => Files.FirstOrDefault(x => x.Id == id);
+        public File GetFile(int id, int width) => Files.FirstOrDefault(x => x.Id == id && x.Width == width);
     }
 
     public class File
