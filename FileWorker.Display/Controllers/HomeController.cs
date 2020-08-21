@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FileWorker.Display.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FileWorker.Display.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private readonly FileManager _fileManager;
+        public HomeController(FileManager fileManager)
         {
-            
+            _fileManager = fileManager;
         }
 
         public IActionResult Index()
