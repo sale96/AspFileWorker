@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FileWorker.Upload.Controllers
@@ -15,5 +16,11 @@ namespace FileWorker.Upload.Controllers
         }
 
         public IActionResult Index() => View();
+
+        [HttpPost]
+        public IActionResult SingleFile(IFormFile file)
+        {
+            return Redirect("Index");
+        }
     }
 }
