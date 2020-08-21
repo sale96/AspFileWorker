@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,11 @@ namespace FileWorker.Upload.Controllers
         [HttpPost]
         public IActionResult SingleFile(IFormFile file)
         {
+            using (var fileStream = new FileStream(Path.Combine(_dir, file.FileName), FileMode.Create, FileAccess.Write))
+            {
+                file.CopyTo(fileStream);
+            }
+
             return Redirect("Index");
         }
     }
