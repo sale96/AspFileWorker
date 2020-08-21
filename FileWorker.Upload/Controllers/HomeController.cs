@@ -26,7 +26,7 @@ namespace FileWorker.Upload.Controllers
                 file.CopyTo(fileStream);
             }
 
-            return Redirect("Index");
+            return RedirectToAction("Index");
         }
     }
 }
