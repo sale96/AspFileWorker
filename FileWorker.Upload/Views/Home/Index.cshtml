@@ -17,3 +17,12 @@
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<div>
+    <h4>File in Model Upload</h4>
+    <form asp-controller="Home" asp-action="FileInModel" enctype="multipart/form-data" method="post">
+        <input type="text" name="formModel.Name" />
+        <input type="file" multiple name="formModel.File" />
+        <button type="submit">Submit</button>
+    </form>
+</div>
