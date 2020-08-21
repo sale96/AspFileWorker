@@ -48,6 +48,11 @@ namespace FileWorker.Upload.Controllers
         [HttpPost]
         public IActionResult FileInModel(FormModel model)
         {
+            using (FileStream fileStream = new FileStream(Path.Combine(_dir, $"{model.Name}.png"), FileMode.Create, FileAccess.Write))
+            {
+                model.File.CopyTo(fileStream);
+            }
+            
             return RedirectToAction("Index");
         }
     }
